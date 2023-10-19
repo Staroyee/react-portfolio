@@ -14,10 +14,10 @@ function App() {
         <Header />
         <div className="flex-grow-1">
           <Routes>
-            <Route path="/" index element={<Aboutme/>}/>
-            <Route path="/portfolio"  element={<Portfolio/>}/>
-            <Route path="/contact"  element={<Contact/>}/>
-            <Route path="/resume"  element={<Resume/>}/>
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="*" index element={<Aboutme />} />
           </Routes>
         </div>
         <Footer />
