@@ -10,7 +10,7 @@ function Header({ links }) {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar fixed="top" bg="dark" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand>
           <Image src="https://example.com/your-avatar-image.jpg" alt="Avatar" />

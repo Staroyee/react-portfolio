@@ -1,5 +1,6 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   const navLinks = [
@@ -14,6 +15,7 @@ function App() {
       <div>
         <Header links={navLinks} />
         {/* Your route components go here */}
+        <Footer />
       </div>
     </Router>
   );
