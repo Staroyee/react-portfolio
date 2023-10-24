@@ -1,57 +1,36 @@
-import { Layout, Menu } from "antd";
-import { UserOutlined } from "@ant-design/icons";
-const { Header } = Layout;
+import { useState } from "react";
+import { Navbar, Nav, Container, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-function Nav() {
+function Header({ links }) {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
+
   return (
-    <Header
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <div className="demo-logo">
-          <img src="https://example.com/your-avatar-image.jpg" alt="Avatar" />
-        </div>
-        <h2 style={{ margin: 0, marginLeft: 16 }}>Daniel Masefield</h2>
-      </div>
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-        <Menu.Item key="1">About Me</Menu.Item>
-        <Menu.Item key="2">Portfolio</Menu.Item>
-        <Menu.Item key="3">Resume</Menu.Item>
-        <Menu.Item key="4">Contact</Menu.Item>
-      </Menu>
-    </Header>
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <Container>
+        <Navbar.Brand>
+          <Image src="https://example.com/your-avatar-image.jpg" alt="Avatar" />
+          Daniel Masefield
+        </Navbar.Brand>
+        <Navbar.Toggle onClick={toggleCollapsed} />
+        <Navbar.Collapse className={`justify-content-${collapsed ? "center" : "end"}`}>
+          <Nav>
+            {links.map((link, index) => (
+              <Nav.Item key={index}>
+                <Link to={link.to} className="nav-link">
+                  {link.label}
+                </Link>
+              </Nav.Item>
+            ))}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
-
-
-// import { Link } from "react-router-dom";
-
-// function Header() {
-//   return (
-//     <>
-//       <nav className="bg-secondary">
-//         <ul>
-//           <li>
-//             <Link to="/">About Me</Link>
-//           </li>
-//           <li>
-//             <Link to="/portfolio">Portfolio</Link>
-//           </li>
-//           <li>
-//             <Link to="/contact">Contact</Link>
-//           </li>
-//           <li>
-//             <Link to="/resume">Resume</Link>
-//           </li>
-//         </ul>
-//       </nav>
-//     </>
-//   );
-// }
-
-export default Nav;
+export default Header;

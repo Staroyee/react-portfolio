@@ -1,21 +1,21 @@
-import "./App.css";
-import Nav from "./components/Header";
-// import Footer from "./components/Footer";
-// import Aboutme from "./pages/Aboutme";
-// import Portfolio from "./pages/Portfolio";
-// import Contact from "./pages/Contact";
-// import Resume from "./pages/Resume";
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import Header from "./components/Header";
 
 function App() {
+  const navLinks = [
+    { to: "/about-me", label: "About Me" },
+    { to: "/portfolio", label: "Portfolio" },
+    { to: "/resume", label: "Resume" },
+    { to: "/contact", label: "Contact" },
+  ];
+
   return (
-    // <BrowserRouter>
-    //   <div className="bg-warning min-vh-100 d-flex flex-column">
-        <Nav />
-          
-    //     <Footer />
-    //   </div>
-    // </BrowserRouter>
+    <Router>
+      <div>
+        <Header links={navLinks} />
+        {/* Your route components go here */}
+      </div>
+    </Router>
   );
 }
 
