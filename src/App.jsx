@@ -1,6 +1,13 @@
-import { BrowserRouter as Router } from "react-router-dom";
+// React imports
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// Component imports
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+// Page imports
+import Aboutme from "./pages/Aboutme";
+import Portfolio from "./pages/Portfolio";
+import Resume from "./pages/Resume";
+import Contact from "./pages/Contact";
 
 function App() {
   const navLinks = [
@@ -11,13 +18,18 @@ function App() {
   ];
 
   return (
-    <Router>
+    <BrowserRouter>
       <div>
         <Header links={navLinks} />
-        {/* Your route components go here */}
+        <Routes>
+          <Route  path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="*" index element={<Aboutme />} />
+        </Routes>
         <Footer />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

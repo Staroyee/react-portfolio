@@ -1,6 +1,22 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Navbar, Nav, Container, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
+import avatar from "../assets/images/avatar.jpg"
+
+const styles = {
+  navStyle: {
+    padding: '1.3rem',
+    alignContent: 'center'
+  },
+  avatarStyle: {
+    width: 60,
+  },
+  titleStyle: {
+    padding: '0px 20px 0px 20px'
+  },
+};
 
 function Header({ links }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -10,10 +26,10 @@ function Header({ links }) {
   };
 
   return (
-    <Navbar fixed="top" bg="dark" variant="dark" expand="lg">
+    <Navbar style={styles.navStyle} bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand>
-          <Image src="https://example.com/your-avatar-image.jpg" alt="Avatar" />
+        <Image style={styles.avatarStyle} src={avatar} alt="Avatar" roundedCircle/>
+        <Navbar.Brand style={styles.titleStyle}>
           Daniel Masefield
         </Navbar.Brand>
         <Navbar.Toggle onClick={toggleCollapsed} />
