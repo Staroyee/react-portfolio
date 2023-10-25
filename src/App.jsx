@@ -19,14 +19,16 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div>
+      <div className="d-flex flex-column min-vh-100">
         <Header links={navLinks} />
-        <Routes>
-          <Route  path="/portfolio" element={<Portfolio />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="*" index element={<Aboutme />} />
-        </Routes>
+        <div className="flex-grow-1">
+          <Routes>
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="*" index element={<Aboutme />} />
+          </Routes>
+        </div>
         <Footer />
       </div>
     </BrowserRouter>

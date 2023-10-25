@@ -1,16 +1,50 @@
+/* eslint-disable react/prop-types */
 import Col from "react-bootstrap/Col";
+import Card from 'react-bootstrap/Card';
 
 const styles = {
-  divStyle: {
+  colStyle: {
+    
+  },
+  cardStyle: {
     border: "2px solid black",
-    width: '300px'
+    width: "20rem",
+  },
+  itemStyle: {
+    minHeight: "40rem",
+    minWidth: "30rem",
+    padding: "40px",
+    cursor: "pointer",
+  },
+  imgStyle: {
+    width: "100%",
+    height: "100%",
+    borderRadius: "2rem",
+    pointerEvents: "none",
+    border: "2px solid #2b2f32",
+    transition: "box-shadow 0.3s, background-color 0.3s",
+  },
+  imgHovered: {
+    boxShadow: "0px 0px 5px rgba(0, 0, 0, .2)",
+    backgroundColor: "#f0f0f0",
+    borderRadius: "2rem",
+    margin: "10px",
   },
 };
 
-function Project() {
+function Project({title, image}) {
   return (
-    <Col>
-      <div style={styles.divStyle}>This is a project!</div>
+    <Col className=" d-flex justify-content-center">
+      <Card style={styles.cardStyle} className="bg-dark text-white">
+      <Card.Img src={image} alt="Card image" />
+      <Card.ImgOverlay>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>
+          This is a wider card with supporting text below as a natural lead-in
+          to additional content. This content is a little bit longer.
+        </Card.Text>
+      </Card.ImgOverlay>
+    </Card>
     </Col>
   );
 }

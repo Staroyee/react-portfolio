@@ -8,7 +8,7 @@ import stackOverflow from '../assets/images/stack-overflow.png'
 function Footer() {
   return (
     <>
-      <Navbar fixed='bottom' variant='dark' bg='dark'>
+      <Navbar variant='dark' bg='dark'>
         <Container>
           <Navbar.Brand href="https://github.com/Staroyee" target='_blank'>
             <img
