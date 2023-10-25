@@ -2,23 +2,30 @@ import Card from "react-bootstrap/Card";
 import eCommerce from "../assets/images/e-commerce.png";
 
 const styles = {
-  textStyle: {
-    backgroundColor: "#000",
+  backgroundStyle: {
+    backgroundColor: "rgb(0, 0, 0, .8)",
     color: "#fff",
+    padding: ".4rem",
+    borderRadius: ".4rem",
   },
+  cardStyle: {
+    backgroundColor: '#fff',
+    margin: '1rem',
+    padding: '.2rem',
+    borderRadius: '.5rem',
+    maxWidth: '20rem',
+    maxHeight: '20rem',
+}
 };
 
 function Project() {
   return (
-    <Card className="bg-dark text-white">
+    <Card style={styles.cardStyle} className="bg-dark text-white">
       <Card.Img src={eCommerce} alt="Card image" />
-      <Card.ImgOverlay style={styles.cardStyle}>
-        <Card.Title>Card title</Card.Title>
-        <Card.Text>
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
-        </Card.Text>
-        <Card.Text>Last updated 3 mins ago</Card.Text>
+      <Card.ImgOverlay>
+        <div style={styles.backgroundStyle}>
+          <Card.Title>DELT FITNESS STORE</Card.Title>
+        </div>
       </Card.ImgOverlay>
     </Card>
   );
