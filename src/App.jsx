@@ -8,6 +8,8 @@ import Aboutme from "./pages/Aboutme";
 import Portfolio from "./pages/Portfolio";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
+import hero from "./assets/images/hero.jpg";
+
 
 function App() {
   const navLinks = [
@@ -18,8 +20,10 @@ function App() {
   ];
 
   return (
+    <>
     <BrowserRouter>
-      <div className="d-flex flex-column min-vh-100">
+      <div style={{ backgroundImage: `url(${hero})`, backgroundRepeat: "no-repeat", backgroundAttachment: "fixed" }} className="d-flex flex-column min-vh-100">
+      
         <Header links={navLinks} />
         <div className="flex-grow-1">
           <Routes>
@@ -32,6 +36,7 @@ function App() {
         <Footer />
       </div>
     </BrowserRouter>
+    </>
   );
 }
 

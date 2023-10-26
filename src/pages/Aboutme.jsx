@@ -1,5 +1,11 @@
+
+
 function Aboutme() {
-    return (<div>About Me</div>)
+    return (
+    <div>
+        hey
+    </div>
+    )
 }
 
 export default Aboutme

@@ -3,15 +3,15 @@ import { useState } from "react";
 import { Navbar, Nav, Container, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import avatar from "../assets/images/avatar.jpg"
+import logo from "../assets/images/logo.png"
 
 const styles = {
   navStyle: {
     padding: '1.3rem',
-    alignContent: 'center'
+    alignContent: 'center',
   },
   avatarStyle: {
-    width: 60,
+    width: 120,
   },
   titleStyle: {
     padding: '0px 20px 0px 20px'
@@ -26,11 +26,13 @@ function Header({ links }) {
   };
 
   return (
-    <Navbar style={styles.navStyle} bg="dark" variant="dark" expand="lg">
+    <Navbar style={styles.navStyle} variant="dark" expand="lg">
       <Container>
-        <Image style={styles.avatarStyle} src={avatar} alt="Avatar" roundedCircle/>
+        <a href="http://localhost:3000/" className="href">
+      <Image style={styles.avatarStyle} src={logo} alt="Avatar" roundedCircle/>
+      </a>
         <Navbar.Brand style={styles.titleStyle}>
-          Daniel Masefield
+          Staroye Web Development
         </Navbar.Brand>
         <Navbar.Toggle onClick={toggleCollapsed} />
         <Navbar.Collapse className={`justify-content-${collapsed ? "center" : "end"}`}>
