@@ -4,12 +4,12 @@ import Row from "react-bootstrap/Row";
 import delt from "../assets/images/delt.png"
 import text from "../assets/images/text.png"
 import blog from "../assets/images/blog.png"
-import note from "../assets/images/note.png"
+import social from "../assets/images/social.png"
 import movie from "../assets/images/movie.png"
-import movie1 from "../assets/images/movie1.png"
+import weather from "../assets/images/weather.png"
 
 const styles = {
-  containerStyles: {
+  rowStyles: {
     padding: "20px",
     gap: "20px",
   }
@@ -18,13 +18,13 @@ const styles = {
 function Portfolio() {
   return (
     <Container>
-      <Row style={styles.containerStyles}>
-        <Project title="Delt Fitness" image={delt}/>
-        <Project title="Text Editor" image={text}/>
-        <Project title="Tech Blog" image={blog}/>
-        <Project title="Note Taker" image={note}/>
-        <Project title="Movie Multiverse1" image={movie}/>
-        <Project title="Movie Multiverse2" image={movie1}/>
+      <Row style={styles.rowStyles}>
+        <Project title="Delt Fitness" desc="E-Commerce: HTML, CSS, JS, MySQL, Express.JS, Node.JS, Handlebars." image={delt} link="https://delt-fitness-e-commerce-36c3e8da33f5.herokuapp.com/"/>
+        <Project title="Social Media API" desc="JS, MongoDB, Express.JS, Node.JS." image={social} link="https://github.com/Staroyee/social-network-api"/>
+        <Project title="Text Editor" desc="PWA: HMTL, CSS, JS, Express, IndexedDB." image={text} link="https://pwa-text-editor-staroye-0fb413c04525.herokuapp.com/"/>
+        <Project title="Tech Blog" desc="HTML, CSS, JS, MySQL, Express. " image={blog} link="https://tech-blog-staroyee-0f66f97e3132.herokuapp.com/"/>
+        <Project title="Movie Multiverse" desc="HTML, CSS, JS, API." image={movie} link="https://staroyee.github.io/Project-Movie-Multiverse/"/>
+        <Project title="Weather Dashboard" desc="HTML, CSS, JS, API." image={weather} link="https://staroyee.github.io/daniel-weather-dashboard/"/>
       </Row>
     </Container>
   );
