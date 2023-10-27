@@ -1,13 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import styled from "styled-components";
+import { Container, Row, Col } from "react-bootstrap";
+import { styled } from "styled-components";
 import Typewriter from "typewriter-effect";
 
 const styles = {
   titleStyles: {
     marginTop: '3rem',
+    paddingBottom: '2rem'
   }
 }
 

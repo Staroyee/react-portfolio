@@ -12,6 +12,8 @@ const styles = {
     width: '90%',
     maxWidth: '850px',
     display: 'flex',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    boxShadow: '0px 26px 75px 15px rgba(0, 0, 0, 1)',
   },
   footerbrandStyle: {
     margin: '10px 30px',

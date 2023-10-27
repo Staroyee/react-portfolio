@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import styled from "styled-components";
+import { PropTypes } from 'prop-types';
+import { Col, Card } from "react-bootstrap";
+import { styled } from "styled-components";
 
 const styles = {
   cardStyle: {
