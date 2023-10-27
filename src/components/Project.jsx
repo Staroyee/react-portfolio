@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import styled from "styled-components";
 
 const styles = {
   cardStyle: {
-    border: "2px solid black",
+    border: "2px solid #000000",
     width: "20rem",
   },
 };
@@ -66,5 +67,12 @@ function Project({ title, image, link, desc }) {
     </Col>
   );
 }
+
+Project.propTypes = {
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired, 
+};
 
 export default Project;
