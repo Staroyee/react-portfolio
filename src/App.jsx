@@ -9,9 +9,9 @@ import Portfolio from "./pages/Portfolio";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 import heroAboutme from "./assets/images/hero-aboutme.jpg";
-import heroPortfolio from "./assets/images/hero-portfolio.jpg";
-import heroResume from "./assets/images/hero-resume.jpg";
-import heroContact from "./assets/images/hero-contact.jpg";
+// import heroPortfolio from "./assets/images/hero-portfolio.jpg";
+// import heroResume from "./assets/images/hero-resume.jpg";
+// import heroContact from "./assets/images/hero-contact.jpg";
 // Styling imports
 import styled from "styled-components";
 
