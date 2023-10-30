@@ -33,7 +33,6 @@ function Header({ links }) {
   };
 
   return (
-    <Row>
       <Col>
         <Navbar style={styles.navStyle} variant="dark" expand="lg">
           <a href="http://localhost:3000/" className="href">
@@ -66,7 +65,6 @@ function Header({ links }) {
           </Navbar.Collapse>
         </Navbar>
       </Col>
-    </Row>
   );
 }
 

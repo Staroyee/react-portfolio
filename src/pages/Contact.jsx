@@ -153,7 +153,6 @@ function Contact() {
 
   // Render the form component
   return (
-    <>
       <Container>
         <Row>
           <Col className="d-flex justify-content-center">
@@ -214,7 +213,6 @@ function Contact() {
           </Col>
         </Row>
       </Container>
-    </>
   );
 }
 

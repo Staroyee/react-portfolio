@@ -1,5 +1,6 @@
 import { Row, Col, Container, Button } from "react-bootstrap";
 import styled from "styled-components";
+import resume from "../assets/resume/Resume.pdf"
 
 const styles = {
   containerStyle: {
@@ -109,7 +110,7 @@ function Resume() {
       <Row>
         <Col>
           <Label>Resume.pdf</Label>
-          <a><DownloadButton style={styles.buttonStyle}>Download</DownloadButton></a>
+          <a href={resume} download><DownloadButton style={styles.buttonStyle}>Download</DownloadButton></a>
         </Col>
       </Row>
     </Container>
