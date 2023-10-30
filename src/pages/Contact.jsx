@@ -1,4 +1,6 @@
 import React from "react";
+import validator from "validator";
+
 import { Form, Col, Row, Container, Button } from "react-bootstrap";
 import styled from "styled-components";
 
@@ -8,7 +10,7 @@ const styles = {
     marginBottom: "20px",
     borderRadius: "1.5rem",
     color: "white",
-    backgroundColor: "rgba(0, 0, 0, 0.3)",
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
   },
   formGroupStyles: {
     paddingBottom: "10px",
@@ -67,15 +69,76 @@ function Contact() {
 
   // Function to handle input changes in the form
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // Check if the input is the email field
+    if (name === "email") {
+      // Check if the email is valid
+      if (!validator.isEmail(value)) {
+        updateFormData({
+          ...formData,
+          [name]: value,
+          emailError: "Please enter a valid email address",
+        });
+      } else {
+        // If the email is valid, clear any previous error message.
+        updateFormData({
+          ...formData,
+          [name]: value,
+          emailError: "",
+        });
+      }
+    } else {
+      // For other fields, simply update the form data.
+      updateFormData({
+        ...formData,
+        [name]: value.trim(),
+      });
+    }
+  };
+
+  const handleQueryBlur = (e) => {
+    const { name, value } = e.target;
+  
+    // Check if the query field is empty
+    if (name === "query" && value.trim() === "") {
+      // You can handle the error here, for example, by setting an error message.
+      // For this example, I'm using an empty string for simplicity.
+      // You can show the error message to the user in your UI.
+      updateFormData({
+        ...formData,
+        queryError: "Query cannot be empty",
+      });
+    } else {
+      // If the query is not empty, clear any previous error message.
+      updateFormData({
+        ...formData,
+        queryError: "",
+      });
+    }
+  };
+
+  const handleQueryFocus = () => {
+    // Clear the query error message
     updateFormData({
       ...formData,
-      [e.target.name]: e.target.value.trim(),
+      queryError: "",
     });
   };
 
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!validator.isEmail(formData.email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+  
+    // Check if the query field is empty
+    if (formData.query.trim() === "") {
+      alert("Query cannot be empty.");
+      return;
+    }
     alert(`Thank you for your message. Your query has been forwarded.`);
     const templateId = "template_z27224s";
     const serviceID = "service_bevruwj";
@@ -86,8 +149,6 @@ function Contact() {
       message_html: formData.query,
       email: formData.email,
     });
-
-    console.log(formData);
   };
 
   // Render the form component
@@ -120,15 +181,28 @@ function Contact() {
                   type="email"
                   placeholder="Enter email"
                 />
+                {formData.emailError && (
+                  <Form.Text style={{ color: "red" }}>
+                    {formData.emailError}
+                  </Form.Text>
+                )}
               </Form.Group>
-              <Form.Group style={styles.formGroupStyles} id="formGridQuery">
-                <Form.Label>Query*</Form.Label>
-                <Form.Control
-                  onChange={handleChange}
-                  name="query"
-                  as="textarea"
-                />
-              </Form.Group>
+              <Form.Group style={styles.formGroupStyles} controlId="formGridQuery">
+              <Form.Label>Query*</Form.Label>
+              <Form.Control
+                onChange={handleChange}
+                onBlur={handleQueryBlur}
+                onFocus={handleQueryFocus}
+                name="query"
+                as="textarea"
+              />
+              {/* Display the error message for query */}
+              {formData.queryError && (
+                <Form.Text style={{ color: "red" }}>
+                  {formData.queryError}
+                </Form.Text>
+              )}
+            </Form.Group>
               <StyledButton
                 style={styles.buttonStyle}
                 onClick={handleSubmit}

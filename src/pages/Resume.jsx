@@ -53,6 +53,7 @@ const DownloadButton = styled(Button)`
   }
 `;
 
+
 function Resume() {
   return (
     <Container style={styles.containerStyle}>
@@ -108,7 +109,7 @@ function Resume() {
       <Row>
         <Col>
           <Label>Resume.pdf</Label>
-          <DownloadButton style={styles.buttonStyle}>Download</DownloadButton>
+          <a><DownloadButton style={styles.buttonStyle}>Download</DownloadButton></a>
         </Col>
       </Row>
     </Container>
