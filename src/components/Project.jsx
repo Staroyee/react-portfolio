@@ -1,10 +1,12 @@
 import { PropTypes } from "prop-types";
 import { Col, Card } from "react-bootstrap";
 import { styled } from "styled-components";
+import { motion } from "framer-motion";
 
 const styles = {
   colStyle: {
     padding: "10px",
+    height: '100vh'
   },
   cardStyle: {
     border: "2px solid #000000",
@@ -50,8 +52,10 @@ const InvisibleText = styled(Card.Text)`
 
 function Project({ title, image, link, desc }) {
   return (
+  <motion.div animate={{ y: -100 }} transition={{ type: "spring" }} >
     <Col style={styles.colStyle} className="d-flex justify-content-center">
-        <a href={link} target="_blank" rel="noopener noreferrer">
+      <a href={link} target="_blank" rel="noopener noreferrer">
+        
           <Card style={styles.cardStyle} className="bg-dark text-white">
             <ImageOverlay>
               <Card.Img src={image} alt="Card image" />
@@ -65,8 +69,10 @@ function Project({ title, image, link, desc }) {
               </Card.ImgOverlay>
             </ImageOverlay>
           </Card>
-        </a>
+        
+      </a>
     </Col>
+    </motion.div>
   );
 }
 

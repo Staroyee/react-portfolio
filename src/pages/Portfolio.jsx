@@ -7,7 +7,6 @@ import social from "../assets/images/social.png"
 import movie from "../assets/images/movie.png"
 import weather from "../assets/images/weather.png"
 
-
 function Portfolio() {
   return (
     <Container>

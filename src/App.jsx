@@ -8,17 +8,21 @@ import Aboutme from "./pages/Aboutme";
 import Portfolio from "./pages/Portfolio";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
-import hero from "./assets/images/hero.jpg";
+import heroAboutme from "./assets/images/hero-aboutme.jpg";
+import heroPortfolio from "./assets/images/hero-portfolio.jpg";
+import heroResume from "./assets/images/hero-resume.jpg";
+import heroContact from "./assets/images/hero-contact.jpg";
 // Styling imports
 import styled from "styled-components";
 
 const FontStyle = styled.div`
   font-family: "EB Garamond", serif;
-  
+  text-shadow: -0px 0px 10px rgba(0, 0, 0, 0.9);
+  color: #000000;
 `;
 
 const HeroContainer = styled.div`
-  background-image: url(${hero});
+  background-image: url(${heroAboutme});
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center 0;
@@ -58,4 +62,3 @@ function App() {
 }
 
 export default App;
-

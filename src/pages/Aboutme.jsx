@@ -6,12 +6,15 @@ import Typewriter from "typewriter-effect";
 const styles = {
   titleStyles: {
     marginTop: '3rem',
-    paddingBottom: '2rem'
+    paddingBottom: '2rem',
+    
   }
 }
 
 const Title = styled.h1`
   margin: 7px;
+  color: #fff;
+  font-size: 5vw;
 `;
 
 function Aboutme() {
