@@ -1,5 +1,5 @@
 html {
-  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
@@ -23,5 +23,7 @@ html {
     right: 0;
     height: 5px;
     background: var(--accent);
-    bottom: 100px;
+    bottom: 0;
   }
+
+  

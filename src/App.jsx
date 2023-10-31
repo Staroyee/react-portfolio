@@ -14,6 +14,7 @@ import heroAboutme from "./assets/images/hero-aboutme.jpg";
 // import heroContact from "./assets/images/hero-contact.jpg";
 // Styling imports
 import styled from "styled-components";
+import "./App.css"
 
 const FontStyle = styled.div`
   font-family: "EB Garamond", serif;

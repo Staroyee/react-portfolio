@@ -3,7 +3,6 @@ import validator from "validator";
 
 import { Form, Col, Row, Container, Button } from "react-bootstrap";
 import styled from "styled-components";
-import heroContact from "../assets/images/hero-contact.jpg"
 
 const styles = {
   formStyles: {
@@ -21,17 +20,6 @@ const styles = {
     border: "solid 1px #55b956",
   },
 };
-const HeroContainer = styled.div`
-  background-image: url(${heroContact});
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  min-height: 100vh;
-`;
 
 const StyledButton = styled(Button)`
   position: relative;
@@ -165,7 +153,6 @@ function Contact() {
 
   // Render the form component
   return (
-    <HeroContainer>
       <Container>
         <Row>
           <Col className="d-flex justify-content-center">
@@ -226,7 +213,6 @@ function Contact() {
           </Col>
         </Row>
       </Container>
-      </HeroContainer>
   );
 }
 

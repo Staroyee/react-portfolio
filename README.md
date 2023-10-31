@@ -29,6 +29,7 @@ Here you will find my fully responsive personal portfolio built using React.
 
 ## Live Link
 
+https://staroye.netlify.app/
 
 ## Installation
 ```
@@ -56,7 +57,7 @@ If you wish to use this design as a template:
 3. Edit code as needed.
 ```
 ## Screenshot
-
+![alt text](./src/assets/images/site.JPG)
 
 
 
@@ -69,6 +70,3 @@ If you wish to use this design as a template:
 - https://www.npmjs.com/package/typewriter-effect
 - https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md
 - https://www.emailjs.com/
-- 
-- 
-

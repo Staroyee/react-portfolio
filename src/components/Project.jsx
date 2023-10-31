@@ -1,15 +1,15 @@
 import { PropTypes } from "prop-types";
 import { Col, Card } from "react-bootstrap";
 import { styled } from "styled-components";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"; // Import Framer Motion
 
 const styles = {
   colStyle: {
     padding: "10px",
-    height: '100vh'
+    height: "70vh",
   },
   cardStyle: {
-    border: "2px solid #000000",
+    border: "4px solid #000000",
     width: "20rem",
   },
 };
@@ -39,6 +39,9 @@ const InvisibleTitle = styled(Card.Title)`
   transition: opacity 0.4s;
   ${ImageOverlay}:hover & {
     opacity: 1;
+    background-color: #55b956;
+    border-radius: 5px;
+    font-size: 40px;
   }
 `;
 
@@ -52,10 +55,11 @@ const InvisibleText = styled(Card.Text)`
 
 function Project({ title, image, link, desc }) {
   return (
-  <motion.div animate={{ y: -100 }} transition={{ type: "spring" }} >
     <Col style={styles.colStyle} className="d-flex justify-content-center">
-      <a href={link} target="_blank" rel="noopener noreferrer">
-        
+      <motion.div
+        whileHover={{ scale: 1.05 }} // Add zoom effect on hover
+      >
+        <a href={link} target="_blank" rel="noopener noreferrer">
           <Card style={styles.cardStyle} className="bg-dark text-white">
             <ImageOverlay>
               <Card.Img src={image} alt="Card image" />
@@ -69,10 +73,9 @@ function Project({ title, image, link, desc }) {
               </Card.ImgOverlay>
             </ImageOverlay>
           </Card>
-        
-      </a>
+        </a>
+      </motion.div>
     </Col>
-    </motion.div>
   );
 }
 
