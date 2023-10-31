@@ -1,29 +1,35 @@
+/* Apply smooth scroll behavior to HTML elements. */
 html {
   scroll-behavior: smooth;
 }
 
+/* Style the scrollbar for WebKit-based browsers. */
 ::-webkit-scrollbar {
   height: 5px;
   width: 5px;
   background: var(--background);
+  /* Set scrollbar height, width, and background color. */
 }
 
+/* Style the scrollbar thumb (dragging handle) for WebKit-based browsers. */
 ::-webkit-scrollbar-thumb {
-    background: #55b956;
+  background: #55b956;
   -webkit-border-radius: 1ex;
+  /* Set the thumb background color and border radius. */
 }
 
+/* Style the scrollbar corner for WebKit-based browsers. */
 ::-webkit-scrollbar-corner {
   background: var(--background);
+  /* Set the scrollbar corner background color. */
 }
 
+/* Style the progress bar. */
 .progress {
-    position: fixed;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: var(--accent);
-    bottom: 0;
-  }
-
-  
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--accent);
+  bottom: 0;
+}

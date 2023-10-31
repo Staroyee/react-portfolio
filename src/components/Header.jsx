@@ -1,9 +1,13 @@
+// Import necessary components and modules.
 import { useState } from "react";
-import { Navbar, Nav, Image, Col} from "react-bootstrap";
+import { PropTypes } from "prop-types";
+import { Navbar, Nav, Image, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+// Import the logo image.
 import logo from "../assets/images/logo.png";
 
+// Define custom styles for the header.
 const styles = {
   navStyle: {
     marginBottom: "20px",
@@ -23,49 +27,53 @@ const styles = {
   },
 };
 
-
-
+// Define the 'Header' component.
 function Header({ links }) {
+  
+  // Use state to manage the collapsed state of the navigation menu.
   const [collapsed, setCollapsed] = useState(false);
 
+  // Function to toggle the collapsed state of the menu.
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
 
   return (
-      <Col>
-        <Navbar style={styles.navStyle} variant="dark" expand="lg">
-          <a href="http://localhost:3000/" className="href">
-            <Image
-              style={styles.logoStyle}
-              src={logo}
-              alt="Avatar"
-              roundedCircle
-            />
-          </a>
-          <Navbar.Brand style={styles.titleStyle}>
-            Staroye Web Development
-          </Navbar.Brand>
-          <Navbar.Toggle
-            onClick={toggleCollapsed}
-            style={styles.dropdownStyle}
+    <Col>
+      <Navbar style={styles.navStyle} variant="dark" expand="lg">
+        <a href="http://localhost:3000/" className="href">
+          <Image
+            style={styles.logoStyle}
+            src={logo}
+            alt="Avatar"
+            roundedCircle
           />
-          <Navbar.Collapse
-            className={`justify-content-${collapsed ? "center" : "end"}`}
-          >
-            <Nav>
-              {links.map((link, index) => (
-                <Nav.Item key={index}>
-                  <Link to={link.to} className="nav-link">
-                    {link.label}
-                  </Link>
-                </Nav.Item>
-              ))}
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-      </Col>
+        </a>
+        <Navbar.Brand style={styles.titleStyle}>
+          Staroye Web Development
+        </Navbar.Brand>
+        <Navbar.Toggle onClick={toggleCollapsed} style={styles.dropdownStyle} />
+        <Navbar.Collapse
+          className={`justify-content-${collapsed ? "center" : "end"}`}
+        >
+          <Nav>
+            {/* Map through the 'links' prop and display navigation links. */}
+            {links.map((link, index) => (
+              <Nav.Item key={index}>
+                <Link to={link.to} className="nav-link">
+                  {link.label}
+                </Link>
+              </Nav.Item>
+            ))}
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </Col>
   );
 }
+
+Header.propTypes = {
+  links: PropTypes.string.isRequired,
+};
 
 export default Header;

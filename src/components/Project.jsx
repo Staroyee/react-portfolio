@@ -1,8 +1,10 @@
+// Import necessary components, modules, and styles.
 import { PropTypes } from "prop-types";
 import { Col, Card } from "react-bootstrap";
 import { styled } from "styled-components";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 
+// Define custom styles for the column and card.
 const styles = {
   colStyle: {
     padding: "10px",
@@ -14,6 +16,7 @@ const styles = {
   },
 };
 
+// Create a styled component for image overlay.
 const ImageOverlay = styled.div`
   position: relative;
 
@@ -34,6 +37,7 @@ const ImageOverlay = styled.div`
   }
 `;
 
+// Create a styled component for an invisible title that becomes visible on hover.
 const InvisibleTitle = styled(Card.Title)`
   opacity: 0;
   transition: opacity 0.4s;
@@ -45,6 +49,7 @@ const InvisibleTitle = styled(Card.Title)`
   }
 `;
 
+// Create a styled component for invisible text that becomes visible on hover.
 const InvisibleText = styled(Card.Text)`
   opacity: 0;
   transition: opacity 0.4s;
@@ -53,11 +58,12 @@ const InvisibleText = styled(Card.Text)`
   }
 `;
 
+// Define the 'Project' component, which represents a project card.
 function Project({ title, image, link, desc }) {
   return (
     <Col style={styles.colStyle} className="d-flex justify-content-center">
       <motion.div
-        whileHover={{ scale: 1.05 }} // Add zoom effect on hover
+        whileHover={{ scale: 1.05 }} // Add zoom effect on hover using Framer Motion
       >
         <a href={link} target="_blank" rel="noopener noreferrer">
           <Card style={styles.cardStyle} className="bg-dark text-white">
@@ -65,9 +71,11 @@ function Project({ title, image, link, desc }) {
               <Card.Img src={image} alt="Card image" />
               <Card.ImgOverlay>
                 <Card.Title>
+                  {/* Display the project title with invisible title effect. */}
                   <InvisibleTitle>{title}</InvisibleTitle>
                 </Card.Title>
                 <Card.Text>
+                  {/* Display project description with invisible text effect. */}
                   <InvisibleText>{desc}</InvisibleText>
                 </Card.Text>
               </Card.ImgOverlay>
@@ -79,6 +87,7 @@ function Project({ title, image, link, desc }) {
   );
 }
 
+// Define prop types for the 'Project' component.
 Project.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,

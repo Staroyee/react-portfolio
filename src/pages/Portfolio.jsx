@@ -1,11 +1,10 @@
-// Component Imports
+// Import the 'Project' component and necessary modules and styles.
 import Project from "../components/Project";
-// Styling Imports
 import { Container, Row, Col } from "react-bootstrap";
-import { motion, useScroll,
-  useSpring, } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-// Image Imports
+
+// Import images for project thumbnails.
 import delt from "../assets/images/delt.png";
 import text from "../assets/images/text.png";
 import blog from "../assets/images/blog.png";
@@ -13,7 +12,7 @@ import social from "../assets/images/social.png";
 import movie from "../assets/images/movie.png";
 import weather from "../assets/images/weather.png";
 
-// Array of projects and their respective details
+// Create an array of project objects, each containing title, description, image, and link.
 const projects = [
   {
     title: "Delt Fitness",
@@ -53,7 +52,7 @@ const projects = [
   },
 ];
 
-// Animation variants
+// Define animation variants for project fade-in effect.
 const fadeInAnimationVariants = {
   initial: {
     opacity: 0,
@@ -68,19 +67,23 @@ const fadeInAnimationVariants = {
   },
 };
 
-
+// Define the 'Portfolio' component.
 function Portfolio() {
+  // Use Framer Motion's 'useScroll' and 'useSpring' to create scroll-based animations.
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
+
   return (
     <Container>
       <Row>
         <Col>
+          {/* Map through the project objects and create Project components with animations. */}
           {projects.map((project, index) => {
+            // Use 'useInView' to trigger animations when the project is in view.
             const [ref, inView] = useInView({
               triggerOnce: true,
             });
@@ -99,9 +102,9 @@ function Portfolio() {
                   link={project.link}
                 />
               </motion.div>
-              
             );
           })}
+          {/* Create a progress bar animation. */}
           <motion.div className="progress" style={{ scaleX }} />
         </Col>
       </Row>

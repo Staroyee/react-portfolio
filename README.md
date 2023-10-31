@@ -58,6 +58,9 @@ If you wish to use this design as a template:
 ```
 ## Screenshot
 ![alt text](./src/assets/images/site.JPG)
+![alt text](./src/assets/images/site2.JPG)
+![alt text](./src/assets/images/site3.JPG)
+![alt text](./src/assets/images/site4.JPG)
 
 
 

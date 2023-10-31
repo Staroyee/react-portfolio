@@ -1,22 +1,24 @@
-/* eslint-disable react/no-unescaped-entities */
+// Import necessary components and modules.
 import { Container, Row, Col } from "react-bootstrap";
 import { styled } from "styled-components";
 import Typewriter from "typewriter-effect";
 
+// Define custom styles for the title.
 const styles = {
   titleStyles: {
-    marginTop: '3rem',
-    paddingBottom: '2rem',
-    
-  }
-}
+    marginTop: "3rem",
+    paddingBottom: "2rem",
+  },
+};
 
+// Create a styled title component using 'styled-components'.
 const Title = styled.h1`
   margin: 7px;
   color: #fff;
   font-size: 5vw;
 `;
 
+// Define the 'Aboutme' component.
 function Aboutme() {
   return (
     <Container>
@@ -33,17 +35,18 @@ function Aboutme() {
       <Row>
         <Col className="d-flex justify-content-center">
           <Title>
+            {/* Use Typewriter component for dynamic text animation. */}
             <Typewriter
               options={{ autoStart: true, loop: true }}
               onInit={(typewriter) => {
                 typewriter
-                  .typeString("MERN")
-                  .pauseFor(1000)
-                  .deleteAll()
-                  .typeString("Mongo | Express | React | Node")
-                  .pauseFor(1000)
-                  .deleteAll()
-                  .start();
+                  .typeString("MERN") // Type "MERN"
+                  .pauseFor(1000) // Pause for 1 second
+                  .deleteAll() // Delete the text
+                  .typeString("Mongo | Express | React | Node") // Type "Mongo | Express | React | Node"
+                  .pauseFor(1000) // Pause for 1 second
+                  .deleteAll() // Delete the text
+                  .start(); // Start the loop
               }}
             />
           </Title>

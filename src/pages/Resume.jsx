@@ -1,7 +1,9 @@
+// Import necessary components and styles.
 import { Row, Col, Container, Button } from "react-bootstrap";
 import styled from "styled-components";
-import resume from "../assets/resume/Resume.pdf"
+import resume from "../assets/resume/Resume.pdf";
 
+// Define custom styles for the container and buttons.
 const styles = {
   containerStyle: {
     backgroundColor: "rgba(0, 0, 0, 0.8)",
@@ -16,6 +18,7 @@ const styles = {
   },
 };
 
+// Create styled components for various elements (Title, SubTitle, Text, Label, and DownloadButton).
 const Title = styled.h1`
   border-bottom: 1px solid #55b956;
   color: #55b956;
@@ -54,7 +57,7 @@ const DownloadButton = styled(Button)`
   }
 `;
 
-
+// Define the 'Resume' component.
 function Resume() {
   return (
     <Container style={styles.containerStyle}>
@@ -71,6 +74,7 @@ function Resume() {
       <Row>
         <Col>
           <Title>Front-End Tech</Title>
+          {/* List front-end technologies. */}
           <Text>React</Text>
           <Text>React-Bootstrap (Bootstrap)</Text>
           <Text>Styled Components</Text>
@@ -79,6 +83,7 @@ function Resume() {
         </Col>
         <Col>
           <Title>Back-End Tech</Title>
+          {/* List back-end technologies. */}
           <Text>Express.js</Text>
           <Text>Node.js</Text>
           <Text>MySQL (Sequelize)</Text>
@@ -110,7 +115,10 @@ function Resume() {
       <Row>
         <Col>
           <Label>Resume.pdf</Label>
-          <a href={resume} download><DownloadButton style={styles.buttonStyle}>Download</DownloadButton></a>
+          {/* Create a download link for the resume PDF. */}
+          <a href={resume} download>
+            <DownloadButton style={styles.buttonStyle}>Download</DownloadButton>
+          </a>
         </Col>
       </Row>
     </Container>
@@ -118,3 +126,4 @@ function Resume() {
 }
 
 export default Resume;
+// Export the 'Resume' component for use in other parts of the application.
