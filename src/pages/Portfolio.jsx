@@ -10,10 +10,16 @@ import text from "../assets/images/text.png";
 import blog from "../assets/images/blog.png";
 import social from "../assets/images/social.png";
 import movie from "../assets/images/movie.png";
-import weather from "../assets/images/weather.png";
+import skyward from "../assets/images/skyward.png";
 
 // Create an array of project objects, each containing title, description, image, and link.
-const projects = [
+const projects = [  
+  {
+    title: "SKYWARD",
+    desc: "HTML, CSS, JS, MongoDB, ExpressJS, ReactJS, Node, GraphQL, Apollo Server.",
+    image: skyward,
+    link: "https://skyward-project-57c549ccb969.herokuapp.com/",
+  },
   {
     title: "Delt Fitness",
     desc: "E-Commerce: HTML, CSS, JS, MySQL, Express.JS, Node.JS, Handlebars.",
@@ -44,12 +50,7 @@ const projects = [
     image: movie,
     link: "https://staroyee.github.io/Project-Movie-Multiverse/",
   },
-  {
-    title: "Weather Dashboard",
-    desc: "HTML, CSS, JS, API.",
-    image: weather,
-    link: "https://staroyee.github.io/daniel-weather-dashboard/",
-  },
+
 ];
 
 // Define animation variants for project fade-in effect.
