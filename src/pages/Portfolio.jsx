@@ -3,14 +3,39 @@ import Project from "../components/Project";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { styled } from "styled-components";
 
-// Import images for project thumbnails.
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+// Import images.
+import heroPortfolio from "../assets/images/hero-portfolio.jpg";
 import delt from "../assets/images/delt.png";
 import text from "../assets/images/text.png";
 import blog from "../assets/images/blog.png";
 import social from "../assets/images/social.png";
 import movie from "../assets/images/movie.png";
 import weather from "../assets/images/weather.png";
+
+// Define an array of navigation links.
+const navLinks = [
+  { to: "/about-me", label: "About Me" },
+  { to: "/portfolio", label: "Portfolio" },
+  { to: "/resume", label: "Resume" },
+  { to: "/contact", label: "Contact" },
+];
+
+// Create a styled component 'HeroContainer' for styling the hero section.
+const HeroContainer = styled.div`
+  background-image: url(${heroPortfolio});
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+`;
 
 // Create an array of project objects, each containing title, description, image, and link.
 const projects = [
@@ -78,37 +103,45 @@ function Portfolio() {
   });
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          {/* Map through the project objects and create Project components with animations. */}
-          {projects.map((project, index) => {
-            // Use 'useInView' to trigger animations when the project is in view.
-            const [ref, inView] = useInView({
-              triggerOnce: true,
-            });
-            return (
-              <motion.div
-                key={index}
-                ref={ref}
-                variants={fadeInAnimationVariants}
-                initial={inView ? "animate" : "initial"}
-                animate={inView ? "animate" : "initial"}
-              >
-                <Project
-                  title={project.title}
-                  desc={project.desc}
-                  image={project.image}
-                  link={project.link}
-                />
-              </motion.div>
-            );
-          })}
-          {/* Create a progress bar animation. */}
-          <motion.div className="progress" style={{ scaleX }} />
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <HeroContainer>
+        <Header links={navLinks} />
+        <div className="flex-grow-1">
+        <Container>
+          <Row>
+            <Col>
+              {/* Map through the project objects and create Project components with animations. */}
+              {projects.map((project, index) => {
+                // Use 'useInView' to trigger animations when the project is in view.
+                const [ref, inView] = useInView({
+                  triggerOnce: true,
+                });
+                return (
+                  <motion.div
+                    key={index}
+                    ref={ref}
+                    variants={fadeInAnimationVariants}
+                    initial={inView ? "animate" : "initial"}
+                    animate={inView ? "animate" : "initial"}
+                  >
+                    <Project
+                      title={project.title}
+                      desc={project.desc}
+                      image={project.image}
+                      link={project.link}
+                    />
+                  </motion.div>
+                );
+              })}
+              {/* Create a progress bar animation. */}
+              <motion.div className="progress" style={{ scaleX }} />
+            </Col>
+          </Row>
+        </Container>
+        </div>
+        <Footer />
+      </HeroContainer>
+    </>
   );
 }
 

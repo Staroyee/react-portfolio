@@ -2,7 +2,18 @@
 import React from "react";
 import validator from "validator";
 import { Form, Col, Row, Container, Button } from "react-bootstrap";
-import styled from "styled-components";
+import { styled } from "styled-components";
+import heroContact from "../assets/images/hero-contact.jpg";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
+// Define an array of navigation links.
+const navLinks = [
+  { to: "/about-me", label: "About Me" },
+  { to: "/portfolio", label: "Portfolio" },
+  { to: "/resume", label: "Resume" },
+  { to: "/contact", label: "Contact" },
+];
 
 // Define custom styles for the form and buttons.
 const styles = {
@@ -21,6 +32,19 @@ const styles = {
     border: "solid 1px #55b956",
   },
 };
+
+// Create a styled component 'HeroContainer' for styling the hero section.
+const HeroContainer = styled.div`
+  background-image: url(${heroContact});
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+`;
 
 // Create a styled button component using 'styled-components'.
 const StyledButton = styled(Button)`
@@ -155,66 +179,77 @@ function Contact() {
 
   // Define the 'Contact' component
   return (
-    <Container>
-      <Row>
-        <Col className="d-flex justify-content-center">
-          <Form style={styles.formStyles}>
-            <Form.Group style={styles.formGroupStyles} controlId="formGridName">
-              <Form.Label>Name*</Form.Label>
-              <Form.Control
-                onChange={handleChange}
-                name="name"
-                type="name"
-                placeholder="Name"
-              />
-            </Form.Group>
-            <Form.Group
-              style={styles.formGroupStyles}
-              controlId="formGridEmail"
-            >
-              <Form.Label>Email*</Form.Label>
-              <Form.Control
-                onChange={handleChange}
-                name="email"
-                type="email"
-                placeholder="Enter email"
-              />
-              {formData.emailError && (
-                <Form.Text style={{ color: "red" }}>
-                  {formData.emailError}
-                </Form.Text>
-              )}
-            </Form.Group>
-            <Form.Group
-              style={styles.formGroupStyles}
-              controlId="formGridQuery"
-            >
-              <Form.Label>Query*</Form.Label>
-              <Form.Control
-                onChange={handleChange}
-                onBlur={handleQueryBlur}
-                onFocus={handleQueryFocus}
-                name="query"
-                as="textarea"
-              />
-              {/* Display the error message for the query field */}
-              {formData.queryError && (
-                <Form.Text style={{ color: "red" }}>
-                  {formData.queryError}
-                </Form.Text>
-              )}
-            </Form.Group>
-            <StyledButton
-              style={styles.buttonStyle}
-              onClick={handleSubmit}
-              type="submit"
-            >
-              Send
-            </StyledButton>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <HeroContainer>
+        <Header links={navLinks} />
+        <div className="flex-grow-1">
+        <Container>
+          <Row>
+            <Col className="d-flex justify-content-center">
+              <Form style={styles.formStyles}>
+                <Form.Group
+                  style={styles.formGroupStyles}
+                  controlId="formGridName"
+                >
+                  <Form.Label>Name*</Form.Label>
+                  <Form.Control
+                    onChange={handleChange}
+                    name="name"
+                    type="name"
+                    placeholder="Name"
+                  />
+                </Form.Group>
+                <Form.Group
+                  style={styles.formGroupStyles}
+                  controlId="formGridEmail"
+                >
+                  <Form.Label>Email*</Form.Label>
+                  <Form.Control
+                    onChange={handleChange}
+                    name="email"
+                    type="email"
+                    placeholder="Enter email"
+                  />
+                  {formData.emailError && (
+                    <Form.Text style={{ color: "red" }}>
+                      {formData.emailError}
+                    </Form.Text>
+                  )}
+                </Form.Group>
+                <Form.Group
+                  style={styles.formGroupStyles}
+                  controlId="formGridQuery"
+                >
+                  <Form.Label>Query*</Form.Label>
+                  <Form.Control
+                    onChange={handleChange}
+                    onBlur={handleQueryBlur}
+                    onFocus={handleQueryFocus}
+                    name="query"
+                    as="textarea"
+                  />
+                  {/* Display the error message for the query field */}
+                  {formData.queryError && (
+                    <Form.Text style={{ color: "red" }}>
+                      {formData.queryError}
+                    </Form.Text>
+                  )}
+                </Form.Group>
+                <StyledButton
+                  style={styles.buttonStyle}
+                  onClick={handleSubmit}
+                  type="submit"
+                >
+                  Send
+                </StyledButton>
+              </Form>
+            </Col>
+          </Row>
+        </Container>
+        </div>
+        <Footer />
+      </HeroContainer>
+    </>
   );
 }
 

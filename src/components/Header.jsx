@@ -39,7 +39,7 @@ function Header({ links }) {
   };
 
   return (
-    <Col>
+    
       <Navbar style={styles.navStyle} variant="dark" expand="lg">
         <a href="http://localhost:3000/" className="href">
           <Image
@@ -68,7 +68,7 @@ function Header({ links }) {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-    </Col>
+    
   );
 }
 
